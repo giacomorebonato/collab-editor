@@ -4,7 +4,6 @@ primary_region = "cdg"
 [env]
   PORT = "3000"
   SITE_URL = "collab-editor.fly.dev"
-  VITE_SITE_URL = "collab-editor.fly.dev"
 
 [http_service]
   internal_port = 3000
