@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>collab-editor</title>
+    <link rel="icon" type="image/x-icon" href="/client/assets/favicon.ico" />
+  </head>
+  <body class="bg-neutral pb-8">
+    <input
+      id="csrf-token"
+      type="hidden"
+      name="csrf-token"
+      value="<!--csrf-token-->"
+    />
+    <div id="root"></div>
+    <script type="module" src="/client/main.tsx"></script>
+  </body>
+</html>
