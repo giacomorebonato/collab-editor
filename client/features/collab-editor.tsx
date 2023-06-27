@@ -1,8 +1,8 @@
 import { HocuspocusProvider } from '@hocuspocus/provider'
 import Editor from '@monaco-editor/react'
+
 import { IndexeddbPersistence } from 'y-indexeddb'
 import { MonacoBinding } from 'y-monaco'
-
 import * as Y from 'yjs'
 
 const DOC_NAME = 'collab-editor'

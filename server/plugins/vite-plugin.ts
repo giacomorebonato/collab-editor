@@ -1,9 +1,9 @@
-import { env } from '../env.js'
 import appRoot from 'app-root-path'
 import { FastifyInstance } from 'fastify'
 import Fs from 'node:fs/promises'
 import Path from 'node:path'
 import { ViteDevServer } from 'vite'
+import { env } from '../env.js'
 
 const htmlFilePath =
   env.NODE_ENV === 'production'
@@ -25,6 +25,14 @@ export const vitePlugin = async (
       root,
       prefix: '/assets/',
     })
+
+    app.get('/manifest.webmanifest', function (req, reply) {
+      reply.sendFile('manifest.webmanifest', Path.join(appRoot.path, 'dist'))
+    })
+    app.get('/sw.js', function (req, reply) {
+      reply.sendFile('sw.js', Path.join(appRoot.path, 'dist'))
+    })
+
     app.get('*', async (request, reply) => {
       const token = reply.generateCsrf()
       const template = htmlFile.replace('<!--csrf-token-->', token)
