@@ -18,9 +18,7 @@ export async function createServer() {
         return request.headers['csrf-token']
       },
     } as any)
-    .register(import('@fastify/cookie'), {
-      secret: env.JWT_SECRET,
-    })
+    .register(import('@fastify/cookie'))
     .register(import('@fastify/websocket'), {
       connectionOptions: {
         readableObjectMode: true,
