@@ -48,7 +48,7 @@ export const CollabEditor = () => {
         const url =
           window.location.hostname === 'localhost'
             ? `ws://localhost:3000/api/editor/${DOC_NAME}`
-            : `wss://${import.meta.env.VITE_SITE_URL}/api/editor/${DOC_NAME}`
+            : `wss://collab-editor.fly.dev/api/editor/${DOC_NAME}`
 
         const hocuspocus = new HocuspocusProvider({
           document: ydoc,
