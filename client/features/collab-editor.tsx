@@ -1,5 +1,6 @@
 import { HocuspocusProvider } from '@hocuspocus/provider'
 import Editor from '@monaco-editor/react'
+import './collab-editor.css'
 
 import { IndexeddbPersistence } from 'y-indexeddb'
 import { MonacoBinding } from 'y-monaco'
@@ -35,7 +36,7 @@ do {
 export const CollabEditor = () => {
   return (
     <Editor
-      className='h-screen'
+      className='editor'
       defaultLanguage='javascript'
       defaultValue={`var a = 1`}
       theme='vs-dark'
