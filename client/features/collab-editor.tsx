@@ -43,7 +43,12 @@ export const CollabEditor = () => {
         const ydoc = new Y.Doc()
         const type = ydoc.getText('monaco')
 
-        const persistence = new IndexeddbPersistence(DOC_NAME, ydoc)
+        new IndexeddbPersistence(DOC_NAME, ydoc)
+
+        const url =
+          window.location.hostname === 'localhost'
+            ? `ws://localhost:3000/api/editor/${DOC_NAME}`
+            : `wss://${import.meta.env.VITE_SITE_URL}/api/editor/${DOC_NAME}`
 
         const hocuspocus = new HocuspocusProvider({
           document: ydoc,
@@ -85,28 +90,8 @@ export const CollabEditor = () => {
 
         const model = editor.getModel()
 
-        // hocuspocus.awareness.on(
-        //   'update',
-        //   ({
-        //     added,
-        //     removed,
-        //     updated,
-        //   }: {
-        //     added: string[]
-        //     removed: string[]
-        //     updated: string[]
-        //   }) => {
-        //     added.forEach((clientId: string) => {
-        //       createCssClass(
-        //         `yRemoteSelectionHead-${clientId}`,
-        //         `border-color: #${getRandomColor()} !important`,
-        //       )
-        //     })
-        //   },
-        // )
-
         if (model) {
-          const monacoBinding = new MonacoBinding(
+          new MonacoBinding(
             type,
             model,
             new Set([editor]),

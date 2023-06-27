@@ -1,8 +1,6 @@
 import Fastify, { FastifyRequest } from 'fastify'
-import { authApi } from './api/auth.js'
 import { editorApi } from './api/editor-api.js'
 import { env, envToLogger } from './env.js'
-import { googleAuth } from './plugins/google-auth.js'
 import { qrCode } from './plugins/qr-code.js'
 import { vitePlugin } from './plugins/vite-plugin.js'
 
@@ -20,7 +18,6 @@ export async function createServer() {
         return request.headers['csrf-token']
       },
     } as any)
-    .register(googleAuth)
     .register(import('@fastify/cookie'), {
       secret: env.JWT_SECRET,
     })
@@ -29,7 +26,6 @@ export async function createServer() {
         readableObjectMode: true,
       },
     })
-    .register(authApi, { prefix: '/api' })
     .register(editorApi, { prefix: '/api' })
     .register(vitePlugin)
     .register(qrCode)

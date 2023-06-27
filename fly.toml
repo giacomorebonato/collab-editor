@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for collab-editor on 2023-06-08T15:32:40+02:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
 app = "collab-editor"
 primary_region = "cdg"
+
+[env]
+  PORT = "3000"
+  SITE_URL = "collab-editor.fly.dev"
+  VITE_SITE_URL = "collab-editor.fly.dev"
 
 [http_service]
   internal_port = 3000
@@ -12,7 +12,3 @@ primary_region = "cdg"
   auto_stop_machines = true
   auto_start_machines = true
   min_machines_running = 0
-
-[env]
-  NODE_ENV = "production"
-  PORT = 3000

@@ -1,6 +1,9 @@
 import { Database } from '@hocuspocus/extension-database'
 import { Server as HocusPocusServer } from '@hocuspocus/server'
-import { FastifyInstance } from 'fastify'
+import { eq } from 'drizzle-orm'
+import type { FastifyInstance } from 'fastify'
+import { db } from '../db/db.js'
+import { files } from '../db/schema.js'
 
 const editorData = new Map<string, Buffer>()
 
@@ -13,16 +16,24 @@ export const editorApi = (
     extensions: [
       new Database({
         fetch: async (data) => {
-          if (editorData.has(data.document.name)) {
-            return editorData.get(data.document.name)!
-          }
+          const file = await db
+            .select()
+            .from(files)
+            .where(eq(files.id, data.documentName))
+            .get()
 
-          return null
+          return file?.content as any
         },
         store: async (data) => {
           editorData.set(data.documentName, data.state)
 
-          app.log.info(`Document ${data.documentName} saved`)
+          await db
+            .update(files)
+            .set({
+              id: data.documentName,
+              content: data.state,
+            })
+            .run()
         },
       }),
     ],

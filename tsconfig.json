@@ -1,26 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "strict": true,
     "module": "ESNext",
     "target": "ESNext",
     "moduleResolution": "Node",
     "sourceMap": true,
     "incremental": true,
-
-    // "lib": [],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */
-    "experimentalDecorators": false /* Enable experimental support for legacy experimental decorators. */,
-    "emitDecoratorMetadata": false /* Emit design-type metadata for decorated declarations in source files. */,
-    // "jsxFactory": "",                                 /* Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'. */
-    // "jsxFragmentFactory": "",                         /* Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. 'React.Fragment' or 'Fragment'. */
-    // "jsxImportSource": "",                            /* Specify module specifier used to import the JSX factory functions when using 'jsx: react-jsx*'. */
-    // "reactNamespace": "",                             /* Specify the object invoked for 'createElement'. This only applies when targeting 'react' JSX emit. */
-    // "noLib": true,                                    /* Disable including any library files, including the default lib.d.ts. */
-    // "useDefineForClassFields": true,                  /* Emit ECMAScript-standard-compliant class fields. */
-    // "moduleDetection": "auto",                        /* Control what method is used to detect module-format JS files. */
-    "paths": {
-      "server/*": ["./server/*"],
-      "client/*": ["./client/*"]
-    },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
+    "experimentalDecorators": false,
+    "emitDecoratorMetadata": false,
     "jsx": "react-jsx",
     "types": ["vite/client"],
     "declaration": true,
