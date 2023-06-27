@@ -52,7 +52,7 @@ export const CollabEditor = () => {
 
         const hocuspocus = new HocuspocusProvider({
           document: ydoc,
-          url: `ws://localhost:3000/api/editor/${DOC_NAME}`,
+          url,
           name: DOC_NAME,
           onConnect() {
             console.log(`${DOC_NAME} connected`)
