@@ -1,10 +1,13 @@
 import { HocuspocusProvider } from '@hocuspocus/provider'
-import Editor from '@monaco-editor/react'
+import Editor, { loader } from '@monaco-editor/react'
 import './collab-editor.css'
 
+import * as monaco from 'monaco-editor'
 import { IndexeddbPersistence } from 'y-indexeddb'
 import { MonacoBinding } from 'y-monaco'
 import * as Y from 'yjs'
+
+loader.config({ monaco })
 
 const DOC_NAME = 'collab-editor'
 const getRandomColor = () => Math.floor(Math.random() * 16777215).toString(16)
@@ -16,7 +19,7 @@ const createCssClass = (className: string, definition: string) => {
     return
   }
   const style = document.createElement('style')
-  style.type = 'text/css'
+
   style.innerHTML = `.${className} { ${definition} }`
   style.id = className
 
