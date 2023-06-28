@@ -40,11 +40,11 @@ export const vitePlugin = async (
       reply.sendFile(lastPart, distRoot)
     })
 
-    app.get('/workbox*', (request, reply) => {
+    app.get('/workbox-*', (request, reply) => {
       const urlParts = request.url.split('/')
       const lastPart = urlParts[1]
 
-      reply.sendFile(lastPart, root)
+      reply.sendFile(lastPart, distRoot)
     })
 
     await app.register(import('@fastify/static'), {
