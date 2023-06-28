@@ -12,7 +12,6 @@ export default defineConfig({
         navigateFallback: null,
       },
       includeAssets: ['**/*'],
-      outDir: './dist/assets',
     }),
   ],
 })

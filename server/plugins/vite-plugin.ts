@@ -20,6 +20,7 @@ export const vitePlugin = async (
 
   if (env.NODE_ENV === 'production') {
     const root = Path.join(appRoot.path, 'dist', 'assets')
+    const distRoot = Path.join(appRoot.path, 'dist')
 
     app.get('/index.html', (request, reply) => {
       reply.type('text/html').send(htmlFile)
@@ -29,11 +30,14 @@ export const vitePlugin = async (
       const urlParts = request.url.split('/')
       const lastPart = urlParts[1]
 
-      reply.sendFile(lastPart, Path.join(appRoot.path, 'dist'))
+      reply.sendFile(lastPart, distRoot)
     })
 
-    app.get('/sw.js', (request, reply) => {
-      reply.sendFile('sw.js', root)
+    app.get('/sw*', (request, reply) => {
+      const urlParts = request.url.split('/')
+      const lastPart = urlParts[1]
+
+      reply.sendFile(lastPart, distRoot)
     })
 
     app.get('/workbox*', (request, reply) => {
