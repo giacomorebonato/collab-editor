@@ -15,6 +15,9 @@ const invertHex = (hex: string) => {
   return (Number(`0x1${hex}`) ^ 0xffffff).toString(16).substr(1).toUpperCase()
 }
 
+loader.config({ monaco })
+const initPromise = loader.init()
+
 const createCssClass = (className: string, definition: string) => {
   if (document.getElementById(className)) {
     return
@@ -42,8 +45,7 @@ export const CollabEditor = () => {
 
   useEffect(() => {
     if (!isLoaded) {
-      loader.config({ monaco })
-      loader.init().then(() => {
+      initPromise.then(() => {
         console.log('Monaco loaded')
         setIsLoaded(true)
       })
@@ -60,6 +62,11 @@ export const CollabEditor = () => {
       defaultLanguage='javascript'
       defaultValue={`var a = 1`}
       theme='vs-dark'
+      options={{
+        minimap: {
+          enabled: false,
+        },
+      }}
       onMount={(editor) => {
         const ydoc = new Y.Doc()
         const type = ydoc.getText('monaco')
