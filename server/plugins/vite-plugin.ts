@@ -21,17 +21,31 @@ export const vitePlugin = async (
   if (env.NODE_ENV === 'production') {
     const root = Path.join(appRoot.path, 'dist', 'assets')
 
-    await app.register(import('@fastify/static'), {
-      root,
-      prefix: '/assets/',
+    app.get('/index.html', (request, reply) => {
+      reply.type('text/html').send(htmlFile)
     })
 
-    app.get('/manifest.webmanifest', (request, reply) => {
-      reply.sendFile('manifest.webmanifest', Path.join(appRoot.path, 'dist'))
+    app.get('/manifest*', (request, reply) => {
+      const urlParts = request.url.split('/')
+      const lastPart = urlParts[1]
+
+      reply.sendFile(lastPart, Path.join(appRoot.path, 'dist'))
     })
 
     app.get('/sw.js', (request, reply) => {
-      reply.sendFile('sw.js', Path.join(appRoot.path, 'dist'))
+      reply.sendFile('sw.js', root)
+    })
+
+    app.get('/workbox*', (request, reply) => {
+      const urlParts = request.url.split('/')
+      const lastPart = urlParts[1]
+
+      reply.sendFile(lastPart, root)
+    })
+
+    await app.register(import('@fastify/static'), {
+      root,
+      prefix: '/assets/',
     })
 
     app.get('*', async (request, reply) => {

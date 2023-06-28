@@ -4,5 +4,11 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  plugins: [react(), VitePWA({ includeAssets: ['**/*'] })],
+  plugins: [
+    react(),
+    VitePWA({
+      includeAssets: ['**/*'],
+      outDir: './dist/assets',
+    }),
+  ],
 })
