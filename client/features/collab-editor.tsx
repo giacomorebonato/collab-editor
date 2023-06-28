@@ -2,18 +2,19 @@ import { HocuspocusProvider } from '@hocuspocus/provider'
 import Editor, { loader } from '@monaco-editor/react'
 import './collab-editor.css'
 
-import * as monaco from 'monaco-editor'
+import * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
+
+import { useEffect, useState } from 'react'
 import { IndexeddbPersistence } from 'y-indexeddb'
 import { MonacoBinding } from 'y-monaco'
 import * as Y from 'yjs'
-
-loader.config({ monaco })
 
 const DOC_NAME = 'collab-editor'
 const getRandomColor = () => Math.floor(Math.random() * 16777215).toString(16)
 const invertHex = (hex: string) => {
   return (Number(`0x1${hex}`) ^ 0xffffff).toString(16).substr(1).toUpperCase()
 }
+
 const createCssClass = (className: string, definition: string) => {
   if (document.getElementById(className)) {
     return
@@ -37,6 +38,22 @@ do {
 } while (!name)
 
 export const CollabEditor = () => {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    if (!isLoaded) {
+      loader.config({ monaco })
+      loader.init().then(() => {
+        console.log('Monaco loaded')
+        setIsLoaded(true)
+      })
+    }
+  }, [isLoaded])
+
+  if (!isLoaded) {
+    return null
+  }
+
   return (
     <Editor
       className='editor'

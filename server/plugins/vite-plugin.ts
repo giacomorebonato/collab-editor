@@ -26,13 +26,6 @@ export const vitePlugin = async (
       prefix: '/assets/',
     })
 
-    app.get('/manifest.webmanifest', function (req, reply) {
-      reply.sendFile('manifest.webmanifest', Path.join(appRoot.path, 'dist'))
-    })
-    app.get('/sw.js', function (req, reply) {
-      reply.sendFile('sw.js', Path.join(appRoot.path, 'dist'))
-    })
-
     app.get('*', async (request, reply) => {
       const token = reply.generateCsrf()
       const template = htmlFile.replace('<!--csrf-token-->', token)
