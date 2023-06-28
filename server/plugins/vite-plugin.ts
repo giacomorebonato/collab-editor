@@ -30,6 +30,10 @@ export const vitePlugin = async (
       reply.sendFile('manifest.webmanifest', Path.join(appRoot.path, 'dist'))
     })
 
+    app.get('/sw.js', (request, reply) => {
+      reply.sendFile('sw.js', Path.join(appRoot.path, 'dist'))
+    })
+
     app.get('*', async (request, reply) => {
       const token = reply.generateCsrf()
       const template = htmlFile.replace('<!--csrf-token-->', token)
