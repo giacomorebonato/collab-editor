@@ -4,12 +4,20 @@ import ReactDOM from 'react-dom/client'
 import { CollabEditor } from './features/collab-editor.js'
 import './features/monaco-worker.js'
 
-import { ReloadPrompt } from './features/reload-prompt.js'
 import './main.css'
+// eslint-disable-next-line import/no-unresolved
+import { registerSW } from 'virtual:pwa-register'
+
+const updateSW = registerSW({
+  onNeedRefresh() {
+    if (confirm('New content available. Reload?')) {
+      updateSW(true)
+    }
+  },
+})
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ReloadPrompt />
     <CollabEditor />
   </React.StrictMode>,
 )

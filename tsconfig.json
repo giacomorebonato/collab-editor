@@ -10,7 +10,7 @@
     "experimentalDecorators": false,
     "emitDecoratorMetadata": false,
     "jsx": "react-jsx",
-    "types": ["vite/client", "vite-plugin-pwa/react"],
+    "types": ["vite/client", "vite-plugin-pwa/client"],
     "declaration": true,
     "outDir": "./dist",
     "removeComments": true,

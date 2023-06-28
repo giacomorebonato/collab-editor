@@ -46,7 +46,6 @@ export const CollabEditor = () => {
   useEffect(() => {
     if (!isLoaded) {
       initPromise.then(() => {
-        console.log('Monaco loaded')
         setIsLoaded(true)
       })
     }

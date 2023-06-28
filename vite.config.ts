@@ -4,5 +4,8 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  plugins: [react(), VitePWA({ registerType: 'prompt' })],
+  plugins: [
+    react(),
+    VitePWA({ registerType: 'prompt', includeAssets: ['**/*'] }),
+  ],
 })
