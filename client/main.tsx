@@ -9,6 +9,9 @@ import './main.css'
 import { registerSW } from 'virtual:pwa-register'
 
 const updateSW = registerSW({
+  onOfflineReady() {
+    console.log('Offline ready')
+  },
   onNeedRefresh() {
     if (confirm('New content available. Reload?')) {
       updateSW(true)
