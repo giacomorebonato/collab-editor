@@ -1,3 +1,6 @@
+// https://github.com/vitejs/vite/discussions/1791#discussioncomment-6088046
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable import/default */
 import * as monaco from 'monaco-editor'
 import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
 import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker'
