@@ -7,6 +7,9 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      workbox: {
+        globPatterns: ['**/*'],
+      },
       includeAssets: ['**/*'],
       outDir: './dist/assets',
     }),
