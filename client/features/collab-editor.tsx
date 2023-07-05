@@ -47,7 +47,7 @@ export const CollabEditor = () => {
   return (
     <Editor
       className='h-screen'
-      defaultLanguage='javascript'
+      defaultLanguage='typescript'
       defaultValue={`var a = 1`}
       theme='vs-dark'
       options={{
