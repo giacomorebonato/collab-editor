@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       workbox: {
-        globPatterns: ['**/*.{js,css}'],
+        globPatterns: ['**/*'],
         navigateFallback: null,
       },
       includeAssets: ['**/*'],
