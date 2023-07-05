@@ -1,6 +1,5 @@
 import { HocuspocusProvider } from '@hocuspocus/provider'
 import Editor, { loader } from '@monaco-editor/react'
-import './collab-editor.css'
 
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
 
@@ -30,16 +29,6 @@ const createCssClass = (className: string, definition: string) => {
   document.getElementsByTagName('head')[0].appendChild(style)
 }
 
-let name: string | null | undefined
-
-do {
-  name = localStorage.getItem('name') ?? window.prompt('Write your name')
-
-  if (name) {
-    localStorage.setItem('name', name)
-  }
-} while (!name)
-
 export const CollabEditor = () => {
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -57,7 +46,7 @@ export const CollabEditor = () => {
 
   return (
     <Editor
-      className='editor'
+      className='h-screen'
       defaultLanguage='javascript'
       defaultValue={`var a = 1`}
       theme='vs-dark'
@@ -110,8 +99,7 @@ export const CollabEditor = () => {
         })
 
         hocuspocus.setAwarenessField('user', {
-          name,
-          test: 'pippo',
+          name: window.name,
           color: '#ffcc00',
         })
 
