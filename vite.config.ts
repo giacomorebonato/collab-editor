@@ -7,11 +7,10 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      workbox: {
-        globPatterns: ['**/*'],
-        navigateFallback: null,
+      registerType: 'autoUpdate',
+      devOptions: {
+        enabled: true,
       },
-      includeAssets: ['**/*'],
     }),
   ],
 })

@@ -1,8 +1,6 @@
 import Fastify, { FastifyRequest } from 'fastify'
 import { editorApi } from './api/editor-api.js'
 import { env, envToLogger } from './env.js'
-import { qrCode } from './plugins/qr-code.js'
-import { vitePlugin } from './plugins/vite-plugin.js'
 
 export async function createServer() {
   const app = Fastify({
@@ -25,8 +23,7 @@ export async function createServer() {
       },
     })
     .register(editorApi, { prefix: '/api' })
-    .register(vitePlugin)
-    .register(qrCode)
+    .register(import('fastify-vite-plugin'))
 
   const start = async () => {
     try {
