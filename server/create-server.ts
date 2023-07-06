@@ -1,4 +1,4 @@
-import Fastify, { FastifyRequest } from 'fastify'
+import Fastify from 'fastify'
 import { editorApi } from './api/editor-api.js'
 import { env, envToLogger } from './env.js'
 
@@ -11,11 +11,6 @@ export async function createServer() {
   await app
     .register(import('fastify-print-routes'))
     .register(import('@fastify/sensible'))
-    .register(import('@fastify/csrf-protection'), {
-      getToken: function (request: FastifyRequest) {
-        return request.headers['csrf-token']
-      },
-    } as any)
     .register(import('@fastify/cookie'))
     .register(import('@fastify/websocket'), {
       connectionOptions: {

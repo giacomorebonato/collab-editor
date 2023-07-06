@@ -5,8 +5,6 @@ import type { FastifyInstance } from 'fastify'
 import { db } from '../db/db.js'
 import { files } from '../db/schema.js'
 
-const editorData = new Map<string, Buffer>()
-
 export const editorApi = (
   app: FastifyInstance,
   _options: any,
@@ -25,8 +23,6 @@ export const editorApi = (
           return file?.content as any
         },
         store: async (data) => {
-          editorData.set(data.documentName, data.state)
-
           await db
             .update(files)
             .set({
