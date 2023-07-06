@@ -53,10 +53,7 @@ export const vitePlugin = async (
     })
 
     app.get('*', async (request, reply) => {
-      const token = reply.generateCsrf()
-      const template = htmlFile.replace('<!--csrf-token-->', token)
-
-      reply.type('text/html').send(template)
+      reply.type('text/html').send(htmlFile)
     })
   } else {
     await app.register(import('@fastify/express'))
