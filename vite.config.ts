@@ -13,7 +13,7 @@ export default defineConfig({
         enabled: true,
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        globPatterns: ['**/*.*'],
       },
     }),
   ],
