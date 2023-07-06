@@ -15,36 +15,6 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.*'],
       },
-      manifest: {
-        name: 'collab-editor',
-        short_name: 'CE',
-        description: 'My Awesome App description',
-        theme_color: '#ffffff',
-        icons: [
-          {
-            src: 'src/client/assets/pwa-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: 'src/client/assets/pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          },
-          {
-            src: 'src/client/assets/pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any'
-          },
-          {
-            src: 'src/client/assets/pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'maskable'
-          }
-        ]
-      }
     }),
   ],
 })
