@@ -105,3 +105,4 @@ dist
 .tern-port
 dev.db
 .DS_Store
+dev-dist/
