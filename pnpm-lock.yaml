@@ -66,8 +66,8 @@ dependencies:
     specifier: ^2.1.0
     version: 2.1.0
   fastify-vite-plugin:
-    specifier: ^0.0.14
-    version: 0.0.14(@fastify/express@2.3.0)(@fastify/static@6.10.2)(fastify@4.19.2)(vite@4.4.1)
+    specifier: ^0.0.15
+    version: 0.0.15(@fastify/express@2.3.0)(@fastify/static@6.10.2)(fastify@4.19.2)(vite@4.4.1)
   monaco-editor:
     specifier: ^0.39.0
     version: 0.39.0
@@ -4994,8 +4994,8 @@ packages:
       table: 6.8.1
     dev: false
 
-  /fastify-vite-plugin@0.0.14(@fastify/express@2.3.0)(@fastify/static@6.10.2)(fastify@4.19.2)(vite@4.4.1):
-    resolution: {integrity: sha512-rguzsfToW4WlOL5ZeYNzy5qlLj3jqxVdvKxuIUi8IVlXCusXCU5F3yk6xs1lIbWVOffIMt2lTt+BoEuwHe73QQ==}
+  /fastify-vite-plugin@0.0.15(@fastify/express@2.3.0)(@fastify/static@6.10.2)(fastify@4.19.2)(vite@4.4.1):
+    resolution: {integrity: sha512-K4r4e1T04ojzJzagR2WStpe/Rpv9Nv12y1YMXzwKN6Ojcjk2InPDHt4MFzT1WWpycxWfn6FJavMjHNCVvrLBJw==}
     peerDependencies:
       '@fastify/express': ^2.3.0
       '@fastify/static': ^6.10.2

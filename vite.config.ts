@@ -7,13 +7,13 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      injectRegister: 'auto',
+      injectRegister: 'script',
       registerType: 'autoUpdate',
       devOptions: {
         enabled: true,
       },
       workbox: {
-        globPatterns: ['**/*.*'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}']
       },
       manifest: {
         name: 'collab-editor',
