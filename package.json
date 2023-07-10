@@ -35,7 +35,7 @@
     "@hocuspocus/extension-database": "2.2.1",
     "@hocuspocus/provider": "2.2.1",
     "@hocuspocus/server": "2.2.1",
-    "@libsql/client": "^0.2.2",
+    "@libsql/client": "^0.3.0",
     "@monaco-editor/react": "^4.5.1",
     "app-root-path": "^3.1.0",
     "dotenv": "^16.3.1",
@@ -45,7 +45,7 @@
     "fastify": "^4.19.2",
     "fastify-print-routes": "^2.1.0",
     "fastify-vite-plugin": "^0.0.15",
-    "monaco-editor": "^0.39.0",
+    "monaco-editor": "^0.40.0",
     "prettier": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -55,7 +55,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@types/node": "^20.4.0",
+    "@types/node": "^20.4.1",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
@@ -74,7 +74,7 @@
     "tailwindcss": "^3.3.2",
     "tsx": "^3.12.7",
     "typescript": "^5.1.6",
-    "vite": "^4.4.1",
+    "vite": "^4.4.2",
     "vite-plugin-pwa": "^0.16.4",
     "vitest": "^0.33.0",
     "workbox-window": "^7.0.0"

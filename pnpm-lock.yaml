@@ -39,11 +39,11 @@ dependencies:
     specifier: 2.2.1
     version: 2.2.1(y-protocols@1.0.5)(yjs@13.6.6)
   '@libsql/client':
-    specifier: ^0.2.2
-    version: 0.2.2
+    specifier: ^0.3.0
+    version: 0.3.0
   '@monaco-editor/react':
     specifier: ^4.5.1
-    version: 4.5.1(monaco-editor@0.39.0)(react-dom@18.2.0)(react@18.2.0)
+    version: 4.5.1(monaco-editor@0.40.0)(react-dom@18.2.0)(react@18.2.0)
   app-root-path:
     specifier: ^3.1.0
     version: 3.1.0
@@ -55,7 +55,7 @@ dependencies:
     version: 0.19.3
   drizzle-orm:
     specifier: ^0.27.0
-    version: 0.27.0(@libsql/client@0.2.2)
+    version: 0.27.0(@libsql/client@0.3.0)
   drizzle-zod:
     specifier: ^0.4.4
     version: 0.4.4(drizzle-orm@0.27.0)(zod@3.21.4)
@@ -67,10 +67,10 @@ dependencies:
     version: 2.1.0
   fastify-vite-plugin:
     specifier: ^0.0.15
-    version: 0.0.15(@fastify/express@2.3.0)(@fastify/static@6.10.2)(fastify@4.19.2)(vite@4.4.1)
+    version: 0.0.15(@fastify/express@2.3.0)(@fastify/static@6.10.2)(fastify@4.19.2)(vite@4.4.2)
   monaco-editor:
-    specifier: ^0.39.0
-    version: 0.39.0
+    specifier: ^0.40.0
+    version: 0.40.0
   prettier:
     specifier: ^3.0.0
     version: 3.0.0
@@ -85,7 +85,7 @@ dependencies:
     version: 9.0.11(yjs@13.6.6)
   y-monaco:
     specifier: ^0.1.4
-    version: 0.1.4(monaco-editor@0.39.0)(yjs@13.6.6)
+    version: 0.1.4(monaco-editor@0.40.0)(yjs@13.6.6)
   yjs:
     specifier: 13.6.6
     version: 13.6.6
@@ -95,8 +95,8 @@ dependencies:
 
 devDependencies:
   '@types/node':
-    specifier: ^20.4.0
-    version: 20.4.0
+    specifier: ^20.4.1
+    version: 20.4.1
   '@types/react':
     specifier: ^18.2.14
     version: 18.2.14
@@ -111,7 +111,7 @@ devDependencies:
     version: 5.61.0(eslint@8.44.0)(typescript@5.1.6)
   '@vitejs/plugin-react-swc':
     specifier: ^3.3.2
-    version: 3.3.2(vite@4.4.1)
+    version: 3.3.2(vite@4.4.2)
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.25)
@@ -152,11 +152,11 @@ devDependencies:
     specifier: ^5.1.6
     version: 5.1.6
   vite:
-    specifier: ^4.4.1
-    version: 4.4.1(@types/node@20.4.0)
+    specifier: ^4.4.2
+    version: 4.4.2(@types/node@20.4.1)
   vite-plugin-pwa:
     specifier: ^0.16.4
-    version: 0.16.4(vite@4.4.1)(workbox-build@7.0.0)(workbox-window@7.0.0)
+    version: 0.16.4(vite@4.4.2)(workbox-build@7.0.0)(workbox-window@7.0.0)
   vitest:
     specifier: ^0.33.0
     version: 0.33.0
@@ -2207,8 +2207,8 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
 
-  /@libsql/client@0.2.2:
-    resolution: {integrity: sha512-HDMbnQq9Ekqb4DEOqLmn2nedeFNMEYSzGhZEGJC0ILFhbUnPVFsEQ/dtUKwE1wgOr8koB/D7qmL3wpujhxvHTA==}
+  /@libsql/client@0.3.0:
+    resolution: {integrity: sha512-Vid6nRLp3dDRUjXFnBMwN2SaNGTNmRWBHaHeBObsiijLC6L7tULl3mylFqQxqydF4Oxy+WCcA+P3tvvbT2Ajcw==}
     dependencies:
       '@libsql/hrana-client': 0.4.2
       better-sqlite3: 8.4.0
@@ -2365,24 +2365,24 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@monaco-editor/loader@1.3.3(monaco-editor@0.39.0):
+  /@monaco-editor/loader@1.3.3(monaco-editor@0.40.0):
     resolution: {integrity: sha512-6KKF4CTzcJiS8BJwtxtfyYt9shBiEv32ateQ9T4UVogwn4HM/uPo9iJd2Dmbkpz8CM6Y0PDUpjnZzCwC+eYo2Q==}
     peerDependencies:
       monaco-editor: '>= 0.21.0 < 1'
     dependencies:
-      monaco-editor: 0.39.0
+      monaco-editor: 0.40.0
       state-local: 1.0.7
     dev: false
 
-  /@monaco-editor/react@4.5.1(monaco-editor@0.39.0)(react-dom@18.2.0)(react@18.2.0):
+  /@monaco-editor/react@4.5.1(monaco-editor@0.40.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-NNDFdP+2HojtNhCkRfE6/D6ro6pBNihaOzMbGK84lNWzRu+CfBjwzGt4jmnqimLuqp5yE5viHS2vi+QOAnD5FQ==}
     peerDependencies:
       monaco-editor: '>= 0.25.0 < 1'
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@monaco-editor/loader': 1.3.3(monaco-editor@0.39.0)
-      monaco-editor: 0.39.0
+      '@monaco-editor/loader': 1.3.3(monaco-editor@0.40.0)
+      monaco-editor: 0.40.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -3026,12 +3026,12 @@ packages:
   /@types/node-fetch@2.6.4:
     resolution: {integrity: sha512-1ZX9fcN4Rvkvgv4E6PAY5WXUFWFcRWxZa3EW83UjycOB9ljJCedb2CupIP4RZMEwF/M3eTcCihbBRgwtGbg5Rg==}
     dependencies:
-      '@types/node': 20.4.0
+      '@types/node': 20.4.1
       form-data: 3.0.1
     dev: false
 
-  /@types/node@20.4.0:
-    resolution: {integrity: sha512-jfT7iTf/4kOQ9S7CHV9BIyRaQqHu67mOjsIQBC3BKZvzvUB6zLxEwJ6sBE3ozcvP8kF6Uk5PXN0Q+c0dfhGX0g==}
+  /@types/node@20.4.1:
+    resolution: {integrity: sha512-JIzsAvJeA/5iY6Y/OxZbv1lUcc8dNSE77lb2gnBH+/PJ3lFR1Ccvgwl5JWnHAkNHcRsT0TbpVOsiMKZ1F/yyJg==}
 
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -3072,7 +3072,7 @@ packages:
   /@types/resolve@1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 20.4.0
+      '@types/node': 20.4.1
     dev: true
 
   /@types/scheduler@0.16.3:
@@ -3097,7 +3097,7 @@ packages:
   /@types/ws@8.5.5:
     resolution: {integrity: sha512-lwhs8hktwxSjf9UaZ9tG5M03PGogvFaH8gUgLNbN9HKIg0dvv6q+gkSuJ8HN4/VbyxkuLzCjlN7GquQ0gUJfIg==}
     dependencies:
-      '@types/node': 20.4.0
+      '@types/node': 20.4.1
     dev: false
 
   /@typescript-eslint/eslint-plugin@5.61.0(@typescript-eslint/parser@5.61.0)(eslint@8.44.0)(typescript@5.1.6):
@@ -3230,13 +3230,13 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@vitejs/plugin-react-swc@3.3.2(vite@4.4.1):
+  /@vitejs/plugin-react-swc@3.3.2(vite@4.4.2):
     resolution: {integrity: sha512-VJFWY5sfoZerQRvJrh518h3AcQt6f/yTuWn4/TRB+dqmYU0NX1qz7qM5Wfd+gOQqUzQW4gxKqKN3KpE/P3+zrA==}
     peerDependencies:
       vite: ^4
     dependencies:
       '@swc/core': 1.3.66
-      vite: 4.4.1(@types/node@20.4.0)
+      vite: 4.4.2(@types/node@20.4.1)
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -4263,7 +4263,7 @@ packages:
       - supports-color
     dev: false
 
-  /drizzle-orm@0.27.0(@libsql/client@0.2.2):
+  /drizzle-orm@0.27.0(@libsql/client@0.3.0):
     resolution: {integrity: sha512-LGiJ0icB+wQwgbSCOvAjONY8Ec6G/EDzQQP5PmUaQYeI9OqgpVKHC2T1fFIbvk5dabWsbokJ5NOciVAxriStig==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -4325,7 +4325,7 @@ packages:
       sqlite3:
         optional: true
     dependencies:
-      '@libsql/client': 0.2.2
+      '@libsql/client': 0.3.0
     dev: false
 
   /drizzle-zod@0.4.4(drizzle-orm@0.27.0)(zod@3.21.4):
@@ -4334,7 +4334,7 @@ packages:
       drizzle-orm: '>=0.23.13'
       zod: '*'
     dependencies:
-      drizzle-orm: 0.27.0(@libsql/client@0.2.2)
+      drizzle-orm: 0.27.0(@libsql/client@0.3.0)
       zod: 3.21.4
     dev: false
 
@@ -4994,7 +4994,7 @@ packages:
       table: 6.8.1
     dev: false
 
-  /fastify-vite-plugin@0.0.15(@fastify/express@2.3.0)(@fastify/static@6.10.2)(fastify@4.19.2)(vite@4.4.1):
+  /fastify-vite-plugin@0.0.15(@fastify/express@2.3.0)(@fastify/static@6.10.2)(fastify@4.19.2)(vite@4.4.2):
     resolution: {integrity: sha512-K4r4e1T04ojzJzagR2WStpe/Rpv9Nv12y1YMXzwKN6Ojcjk2InPDHt4MFzT1WWpycxWfn6FJavMjHNCVvrLBJw==}
     peerDependencies:
       '@fastify/express': ^2.3.0
@@ -5006,7 +5006,7 @@ packages:
       '@fastify/static': 6.10.2
       app-root-path: 3.1.0
       fastify: 4.19.2
-      vite: 4.4.1(@types/node@20.4.0)
+      vite: 4.4.2(@types/node@20.4.1)
     dev: false
 
   /fastify@4.19.2:
@@ -5895,7 +5895,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.4.0
+      '@types/node': 20.4.1
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: true
@@ -6697,8 +6697,8 @@ packages:
       ufo: 1.1.2
     dev: true
 
-  /monaco-editor@0.39.0:
-    resolution: {integrity: sha512-zhbZ2Nx93tLR8aJmL2zI1mhJpsl87HMebNBM6R8z4pLfs8pj604pIVIVwyF1TivcfNtIPpMXL+nb3DsBmE/x6Q==}
+  /monaco-editor@0.40.0:
+    resolution: {integrity: sha512-1wymccLEuFSMBvCk/jT1YDW/GuxMLYwnFwF9CDyYCxoTw2Pt379J3FUhwy9c43j51JdcxVPjwk0jm0EVDsBS2g==}
     dev: false
 
   /mri@1.2.0:
@@ -8763,7 +8763,7 @@ packages:
       vfile-message: 3.1.4
     dev: false
 
-  /vite-node@0.33.0(@types/node@20.4.0):
+  /vite-node@0.33.0(@types/node@20.4.1):
     resolution: {integrity: sha512-19FpHYbwWWxDr73ruNahC+vtEdza52kA90Qb3La98yZ0xULqV8A5JLNPUff0f5zID4984tW7l3DH2przTJUZSw==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -8773,7 +8773,7 @@ packages:
       mlly: 1.4.0
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 4.4.1(@types/node@20.4.0)
+      vite: 4.4.2(@types/node@20.4.1)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -8785,7 +8785,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-pwa@0.16.4(vite@4.4.1)(workbox-build@7.0.0)(workbox-window@7.0.0):
+  /vite-plugin-pwa@0.16.4(vite@4.4.2)(workbox-build@7.0.0)(workbox-window@7.0.0):
     resolution: {integrity: sha512-lmwHFIs9zI2H9bXJld/zVTbCqCQHZ9WrpyDMqosICDV0FVnCJwniX1NMDB79HGTIZzOQkY4gSZaVTJTw6maz/Q==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
@@ -8796,15 +8796,15 @@ packages:
       debug: 4.3.4
       fast-glob: 3.2.12
       pretty-bytes: 6.1.0
-      vite: 4.4.1(@types/node@20.4.0)
+      vite: 4.4.2(@types/node@20.4.1)
       workbox-build: 7.0.0
       workbox-window: 7.0.0
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@4.4.1(@types/node@20.4.0):
-    resolution: {integrity: sha512-8mmwPlsy7t+ZcTme7vdbVGuZ3Tri+lrLXr6hsF5UHdyYyARPPPMtM16QlqC9TZuCd5j3NmWs1rwka3cVSRHZTw==}
+  /vite@4.4.2(@types/node@20.4.1):
+    resolution: {integrity: sha512-zUcsJN+UvdSyHhYa277UHhiJ3iq4hUBwHavOpsNUGsTgjBeoBlK8eDt+iT09pBq0h9/knhG/SPrZiM7cGmg7NA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -8831,7 +8831,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.4.0
+      '@types/node': 20.4.1
       esbuild: 0.18.10
       postcss: 8.4.25
       rollup: 3.25.3
@@ -8871,7 +8871,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.5
       '@types/chai-subset': 1.3.3
-      '@types/node': 20.4.0
+      '@types/node': 20.4.1
       '@vitest/expect': 0.33.0
       '@vitest/runner': 0.33.0
       '@vitest/snapshot': 0.33.0
@@ -8890,8 +8890,8 @@ packages:
       strip-literal: 1.0.1
       tinybench: 2.5.0
       tinypool: 0.6.0
-      vite: 4.4.1(@types/node@20.4.0)
-      vite-node: 0.33.0(@types/node@20.4.0)
+      vite: 4.4.2(@types/node@20.4.1)
+      vite-node: 0.33.0(@types/node@20.4.1)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
@@ -9161,14 +9161,14 @@ packages:
       yjs: 13.6.6
     dev: false
 
-  /y-monaco@0.1.4(monaco-editor@0.39.0)(yjs@13.6.6):
+  /y-monaco@0.1.4(monaco-editor@0.40.0)(yjs@13.6.6):
     resolution: {integrity: sha512-RzAvjKJ2yt3VjlKK55U8STJyd1gz5/Qm6pjt7SAVb+k+g+KaSeTuSBGt+lURN+dzzSNs73ZkIAerW3JM0mzBSw==}
     peerDependencies:
       monaco-editor: '>=0.20.0'
       yjs: ^13.3.1
     dependencies:
       lib0: 0.2.78
-      monaco-editor: 0.39.0
+      monaco-editor: 0.40.0
       yjs: 13.6.6
     dev: false
 
