@@ -1,3 +1,5 @@
+[Demo](https://collab-editor.fly.dev/)
+
 ## Docker commands
 
 ```bash
