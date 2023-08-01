@@ -11,6 +11,11 @@ const envSchema = z.object({
     .default('development'),
   PORT: z.preprocess(Number, z.number()),
   SITE_URL: z.string(),
+  JWT_SECRET: z.string(),
+  GOOGLE_CLIENT_ID: z.string(),
+  GOOGLE_CLIENT_SECRET: z.string(),
+  SECRET_KEY: z.string(),
+  SECRET_IV: z.string(),
 })
 
 export const env = envSchema.parse(process.env)

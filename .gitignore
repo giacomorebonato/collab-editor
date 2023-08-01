@@ -106,3 +106,4 @@ dist
 dev.db
 .DS_Store
 dev-dist/
+secret-key

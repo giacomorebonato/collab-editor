@@ -1,11 +1,11 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "09b17a76-e0c3-41c5-a14a-2b8b1b8320d0",
+  "id": "d2262b0e-c208-49aa-b350-7b310a99d7fe",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "articles": {
-      "name": "articles",
+    "files": {
+      "name": "files",
       "columns": {
         "id": {
           "name": "id",
@@ -26,13 +26,6 @@
           "type": "blob",
           "primaryKey": false,
           "notNull": false,
-          "autoincrement": false
-        },
-        "author_id": {
-          "name": "author_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
           "autoincrement": false
         },
         "completed": {
@@ -61,22 +54,9 @@
         }
       },
       "indexes": {},
-      "foreignKeys": {
-        "articles_author_id_users_id_fk": {
-          "name": "articles_author_id_users_id_fk",
-          "tableFrom": "articles",
-          "tableTo": "users",
-          "columnsFrom": [
-            "author_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {}
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
     },
     "users": {
       "name": "users",
@@ -93,6 +73,20 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "surname": {
+          "name": "surname",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
           "autoincrement": false
         },
         "created_at": {
@@ -114,7 +108,8 @@
       },
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {}
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
     }
   },
   "enums": {},

@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "strict": true,
     "module": "ESNext",
     "target": "ESNext",
@@ -18,6 +17,18 @@
     "esModuleInterop": true,
     "preserveSymlinks": false,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "plugins": [{ "transform": "typescript-transform-paths" }],
+    "paths": {
+      "@features/*": ["./features/*"],
+      "@db/*": ["./db/*"],
+      "@server/*": ["./server/*"],
+      "@client/*": ["./client/*"]
+    }
+  },
+  "ts-node": {
+    "transpileOnly": true,
+    "require": ["typescript-transform-paths/register"],
+    "esm": true
   }
 }

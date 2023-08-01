@@ -2,8 +2,8 @@ import { Database } from '@hocuspocus/extension-database'
 import { Server as HocusPocusServer } from '@hocuspocus/server'
 import { eq } from 'drizzle-orm'
 import type { FastifyInstance } from 'fastify'
-import { db } from '../db/db.js'
-import { files } from '../db/schema.js'
+import { db } from '../../db/db.js'
+import { files } from '../../db/schema.js'
 
 export const editorApi = (
   app: FastifyInstance,

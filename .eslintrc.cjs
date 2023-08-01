@@ -11,8 +11,9 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
+    'plugin:@tanstack/eslint-plugin-query/recommended',
+    'plugin:valtio/recommended',
   ],
-  overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
@@ -20,24 +21,27 @@ module.exports = {
     sourceType: 'module',
   },
   settings: {
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     'import/resolver': {
       node: {
         extensions: ['.js', '.jsx'],
       },
       typescript: {
-        "project": "tsconfig.json"
+        project: 'tsconfig.json',
       },
     },
     react: {
       version: '18',
     },
   },
-  plugins: ['react', '@typescript-eslint', 'import'],
+  plugins: ['react', '@typescript-eslint', 'import', '@tanstack/query'],
+  ignorePatterns: ['.eslintrc.cjs'],
   rules: {
+    'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,
     '@typescript-eslint/no-explicit-any': 0,
+    'import/no-unresolved': ['error', { ignore: ['^virtual:'] }],
   },
 }
