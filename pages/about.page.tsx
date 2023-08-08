@@ -1,6 +1,6 @@
-import { PageAnimation } from '../features/page-animation.js'
+import { PageAnimation } from '@features/page-animation.jsx'
 
-export const AboutPage = () => {
+export const Page = () => {
   return (
     <PageAnimation>
       <div>Such a beautiful day</div>

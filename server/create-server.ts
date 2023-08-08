@@ -38,7 +38,9 @@ export async function createServer() {
       trpcOptions: { router: trpcAppRouter, createContext },
     })
     .register(editorApi, { prefix: '/api' })
-    .register(import('fastify-vite-plugin'))
+    .register(import('fastify-vite-plugin'), {
+      enableSSR: true,
+    })
 
   fastifyPassport.registerUserDeserializer(async (user) => {
     return user

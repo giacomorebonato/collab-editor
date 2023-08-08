@@ -23,7 +23,8 @@
       "@features/*": ["./features/*"],
       "@db/*": ["./db/*"],
       "@server/*": ["./server/*"],
-      "@client/*": ["./client/*"]
+      "@client/*": ["./client/*"],
+      "@renderer/*": ["./renderer/*"]
     }
   },
   "ts-node": {

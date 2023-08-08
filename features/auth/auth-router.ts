@@ -5,15 +5,33 @@ import { z } from 'zod'
 import { SessionUser } from './upsert-user-query.js'
 
 export const authRouter = router({
-  getProfile: publicProcedure.query(({ ctx }): SessionUser => {
-    if (!ctx.request.user) {
-      throw new TRPCError({
-        code: 'UNAUTHORIZED',
-      })
-    }
+  getProfile: publicProcedure
+    .input(
+      z.object({
+        from: z.enum(['db', 'session']),
+      }),
+    )
+    .query(async ({ ctx, input }): Promise<SessionUser> => {
+      if (!ctx.request.user) {
+        throw new TRPCError({
+          code: 'UNAUTHORIZED',
+        })
+      }
 
-    return ctx.request.user as SessionUser
-  }),
+      if (input.from === 'db') {
+        return ctx.db
+          .select({
+            id: ctx.Schema.users.id,
+            email: ctx.Schema.users.email,
+            name: ctx.Schema.users.name,
+            surname: ctx.Schema.users.surname,
+          })
+          .from(ctx.Schema.users)
+          .get()
+      }
+
+      return ctx.request.user as SessionUser
+    }),
   updateProfile: publicProcedure
     .input(
       z.object({

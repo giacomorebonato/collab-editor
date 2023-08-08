@@ -1,18 +1,22 @@
 import { TrpcClient } from '@client/trpc-client.js'
 import { LoginModal } from '@features/auth/login-modal.jsx'
+import { AppLink } from '@renderer/app-link.jsx'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { AnimatePresence } from 'framer-motion'
-import { useCallback, useRef } from 'react'
+import { ReactNode, useCallback, useEffect, useRef } from 'react'
 import { Footer, Menu, Navbar } from 'react-daisyui'
-import { FaHamburger } from 'react-icons/fa'
-import { Link, NavLink, Outlet } from 'react-router-dom'
+import { FaHamburger } from 'react-icons/fa/index.js'
+import { toast } from 'react-toastify'
+import { registerSW } from 'virtual:pwa-register'
 
 const SideMenu = ({
   modalRef,
 }: {
   modalRef: React.RefObject<HTMLDialogElement>
 }) => {
-  const getProfile = TrpcClient.auth.getProfile.useQuery()
+  const getProfile = TrpcClient.auth.getProfile.useQuery({
+    from: 'session',
+  })
   const logout = TrpcClient.auth.logout.useMutation({
     onSuccess() {
       getProfile.refetch()
@@ -25,9 +29,6 @@ const SideMenu = ({
 
   return (
     <Menu className='p-4 w-80 h-full bg-base-200 text-base-content'>
-      <Menu.Item>
-        <a>Item 1</a>
-      </Menu.Item>
       <Menu.Item onClick={handleShow}>
         <span>Open Modal</span>
       </Menu.Item>
@@ -35,7 +36,7 @@ const SideMenu = ({
       {getProfile.isSuccess && (
         <>
           <Menu.Item>
-            <Link to='/profile'>Profile</Link>
+            <AppLink href='/profile'>Profile</AppLink>
           </Menu.Item>
           <Menu.Item
             onClick={() => {
@@ -50,11 +51,24 @@ const SideMenu = ({
   )
 }
 
-export const Root = () => {
+export const Root = ({ children }: { children: ReactNode }) => {
   const modalRef = useRef<HTMLDialogElement>(null)
-  // const handleShow = useCallback(() => {
-  //   modalRef.current?.showModal()
-  // }, [modalRef])
+
+  useEffect(() => {
+    if (import.meta.env.PROD) {
+      const updateSW = registerSW({
+        immediate: true,
+        onOfflineReady() {
+          toast('Offline ready')
+        },
+        onNeedRefresh() {
+          if (confirm('New content available. Reload?')) {
+            updateSW(true)
+          }
+        },
+      })
+    }
+  }, [])
 
   return (
     <div className='drawer lg:drawer-open drawer-end'>
@@ -63,12 +77,12 @@ export const Root = () => {
       <div className='drawer-content'>
         <Navbar>
           <Navbar.Start>
-            <Link
-              to='/'
+            <AppLink
+              href='/'
               className='link text-2xl normal-case no-underline cursor-pointer'
             >
               collab-editor
-            </Link>
+            </AppLink>
           </Navbar.Start>
           <Navbar.End>
             <label
@@ -80,14 +94,14 @@ export const Root = () => {
           </Navbar.End>
         </Navbar>
         <AnimatePresence mode='wait' initial={false}>
-          <Outlet />
+          <div className='h-screen p-2'>{children}</div>
         </AnimatePresence>
         <Footer className='pl-10 pr-10 pt-4 pb-10 bg-neutral text-neutral-content flex items-center justify-center'>
           <div>
             <Footer.Title>Links</Footer.Title>
-            <NavLink to='/about' className='link link-hover'>
+            <AppLink href='/about' className='link link-hover'>
               about
-            </NavLink>
+            </AppLink>
           </div>
         </Footer>
 

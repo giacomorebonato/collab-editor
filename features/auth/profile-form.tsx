@@ -2,18 +2,26 @@ import { TrpcClient } from '@client/trpc-client.js'
 import { debounce } from 'radash'
 import { useCallback } from 'react'
 import { Form, Input } from 'react-daisyui'
+import { toast } from 'react-toastify'
 import { P, match } from 'ts-pattern'
 
 export const ProfileForm = () => {
-  const getProfile = TrpcClient.auth.getProfile.useQuery()
+  const getProfile = TrpcClient.auth.getProfile.useQuery({
+    from: 'db',
+  })
   const updateProfile = TrpcClient.auth.updateProfile.useMutation()
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useCallback(
+  const updateProfileDebounced = useCallback(
     debounce(
       { delay: 1_000 },
       (params: Parameters<typeof updateProfile.mutateAsync>[0]) => {
-        updateProfile.mutateAsync(params)
+        updateProfile.mutateAsync(params).then(() => {
+          toast('Profile saved', {
+            position: 'bottom-right',
+            autoClose: 1_000,
+          })
+        })
       },
     ),
     [updateProfile],
@@ -38,9 +46,13 @@ export const ProfileForm = () => {
           <Form
             className='max-w-md'
             onChange={(e) => {
-              const formData = new FormData(e.target as HTMLFormElement)
+              const formData = new FormData(
+                (e.target as HTMLFormElement).closest('form')!,
+              )
 
-              console.log(formData.entries())
+              const formEntries = Object.fromEntries(formData.entries())
+
+              updateProfileDebounced(formEntries as any)
             }}
           >
             <div className='form-control'>
